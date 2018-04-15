@@ -13,3 +13,10 @@ def index():
     enterntainment_list = get_sources('us', 'enterntainment')
     health_list = get_sources('us', 'health')
     return render_template('index.html', general=general_list, business=business_list, technology=technology_list, sports=sports_list, scince=science_list, entertainment=enterntainment_list, health=health_list)
+
+
+@main.route('/news/<id>')
+def article(id):
+    news_arguments = get_articles(id)
+    highlight_arguments = 'Route Working!'
+    return render_template('news.html', highlight_parameters=highlight_arguments, news=news_arguments)
